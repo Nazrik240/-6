@@ -1,6 +1,6 @@
 ﻿program pr1;
 Label
-  m_1, m_2;
+  m1, m2;
 Var 
   a,b: array of array of real;
   sum, sred: array of real;
@@ -8,11 +8,11 @@ Var
   s:string;
   p:integer;
 Begin
-m_2:write('Введите количество критериев  n = '); 
+m2:write('Введите количество критериев  n = '); 
    readln(s);                                             // Ввод количества критериев
    val(s,n,p);                                            // Контроль ввода числа
-   if p<>0  then  begin write ('Введён недопустимый символ, повторите ввод!'); goto m_2 end;
-   if n<=0 then begin writeln('Введён недопустимый символ, повторите ввод!'); goto m_2 end else   
+   if p<>0  then  begin write ('Введён недопустимый символ, повторите ввод!'); goto m2 end;
+   if n<=0 then begin writeln('Введён недопустимый символ, повторите ввод!'); goto m2 end else   
 begin
   SetLength(a,n+1);SetLength(b,n+1);                      // Установка размерности динамических массивов
   For i:=1 to n do 
@@ -25,12 +25,12 @@ begin
   for i:=1 to n-1 do                                      // Заполнение матрицы А попарных сравнений
   for j:=i+1 to n do
   begin
-    m_1: write('Отношение критерия ', i, ' к критерию ',j,' = ');
+    m1: write('Отношение критерия ', i, ' к критерию ',j,' = ');
       readln(a[i,j]);
           if (a[i,j]<=0) or (a[i,j]>9) then              // Контроль ввода числа из заданного МАИ интервала
              begin 
                writeln ('Ошибка! Повторите ввод');
-               goto m_1 
+               goto m1 
              end;
   end;
   a[1,1]:=1;
